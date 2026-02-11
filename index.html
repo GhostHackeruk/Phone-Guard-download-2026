@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Phone Guard • Download</title>
+  <meta name="theme-color" content="#0b1020" />
+
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#101a33;
+      --card2:#0e1730;
+      --text:#eaf0ff;
+      --muted:#a8b3d6;
+      --line:rgba(255,255,255,.10);
+      --blue:#3b82f6;
+      --blue2:#60a5fa;
+      --green:#22c55e;
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --r:18px;
+      --max: 980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      background: radial-gradient(900px 480px at 20% -10%, rgba(96,165,250,.25), transparent 60%),
+                  radial-gradient(700px 420px at 110% 10%, rgba(34,197,94,.18), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit; text-decoration:none}
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      background: rgba(11,16,32,.85);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 16px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .back{
+      width:38px; height:38px; border-radius:999px;
+      display:grid; place-items:center;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .brand .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: linear-gradient(135deg,var(--blue),var(--green));
+      box-shadow: 0 0 18px rgba(96,165,250,.45);
+    }
+
+    .container{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px 16px 60px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      margin-top:14px;
+    }
+    @media (max-width:860px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .apphead{
+      padding:18px;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+    .icon{
+      width:82px; height:82px; border-radius:18px;
+      background: radial-gradient(circle at 30% 20%, rgba(96,165,250,.35), transparent 60%),
+                  radial-gradient(circle at 90% 80%, rgba(34,197,94,.28), transparent 55%),
+                  #0f1833;
+      border:1px solid var(--line);
+      display:grid; place-items:center;
+      font-weight:900;
+      letter-spacing:.6px;
+      color:#dbe8ff;
+    }
+    .apptitle h1{
+      margin:0;
+      font-size:28px;
+      line-height:1.15;
+    }
+    .publisher{
+      margin-top:6px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .meta{
+      display:flex; gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      background: rgba(255,255,255,.04);
+    }
+    .star{color:#fbbf24}
+    .actions{
+      padding:0 18px 18px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      border:0;
+      cursor:pointer;
+      font-weight:800;
+      border-radius: 12px;
+      padding:14px 16px;
+      min-width: 210px;
+      text-align:center;
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+    }
+    .btn.primary{
+      color:#071227;
+      background: linear-gradient(135deg, var(--blue), var(--blue2));
+      box-shadow: 0 12px 28px rgba(59,130,246,.25);
+    }
+    .btn.secondary{
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+      border:1px solid var(--line);
+      min-width:auto;
+    }
+    .subnote{
+      color:var(--muted);
+      font-size:13px;
+      padding:0 18px 18px;
+      border-top:1px solid var(--line);
+      background: rgba(0,0,0,.12);
+    }
+
+    .right{
+      display:grid;
+      gap:18px;
+    }
+    .section{
+      padding:16px 16px 18px;
+      background: rgba(0,0,0,.10);
+      border-top:1px solid var(--line);
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .desc{
+      color:var(--muted);
+      line-height:1.6;
+      font-size:14px;
+      margin:0;
+    }
+
+    .screens{
+      padding:14px;
+    }
+    .shots{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:10px;
+    }
+    @media (max-width:860px){
+      .shots{grid-template-columns: repeat(2, 1fr)}
+    }
+    .shot{
+      aspect-ratio: 9/16;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+        radial-gradient(circle at 30% 20%, rgba(96,165,250,.25), transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(34,197,94,.18), transparent 55%),
+        #0e1730;
+      overflow:hidden;
+      display:flex; align-items:flex-end; justify-content:flex-start;
+      padding:10px;
+      color:rgba(255,255,255,.85);
+      font-size:12px;
+    }
+
+    .install{
+      padding:16px;
+    }
+    .steps{
+      margin:0; padding-left:18px;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:14px;
+    }
+
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.72);
+      border:1px solid rgba(255,255,255,.14);
+      color: #eaf0ff;
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      display:none;
+      gap:10px;
+      align-items:center;
+      backdrop-filter: blur(8px);
+      z-index: 99;
+      max-width: 92vw;
+    }
+    .toast b{color:#fff}
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <a class="back" href="javascript:history.back()" aria-label="Back">←</a>
+      <div class="brand"><span class="dot"></span> Phone Guard</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="hero">
+      <!-- LEFT -->
+      <div class="card">
+        <div class="apphead">
+          <div class="icon">PG</div>
+          <div class="apptitle">
+            <h1>Phone Guard</h1>
+            <div class="publisher">by Phone Guard Team</div>
+            <div class="meta">
+              <span class="pill"><span class="star">★</span> 4.6</span>
+              <span class="pill">10M+ downloads</span>
+              <span class="pill">Rated 4+</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <!-- IMPORTANT: APK path -->
+          <a class="btn primary" id="downloadBtn" href="/apk/PhoneGuard.apk" download>
+            ⬇ Download APK
+          </a>
+          <button class="btn secondary" id="copyBtn">Copy link</button>
+        </div>
+
+        <div class="subnote">
+          <div style="padding-top:12px">
+            <b>Note:</b> If your phone shows a security warning during install, tap <b>Install anyway</b> / allow “Unknown apps”.
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>About this app</h2>
+          <p class="desc">
+            Phone Guard is a secure dashboard app. Download the APK and install it to access the latest version.
+          </p>
+        </div>
+
+        <div class="screens">
+          <h2 style="margin:0 0 10px; font-size:16px;">Screenshots</h2>
+          <div class="shots">
+            <div class="shot">Screenshot 1</div>
+            <div class="shot">Screenshot 2</div>
+            <div class="shot">Screenshot 3</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="right">
+        <div class="card">
+          <div class="install">
+            <h2>How to install</h2>
+            <ol class="steps">
+              <li>Tap <b>Download APK</b></li>
+              <li>Open the downloaded file</li>
+              <li>If warning appears: Settings → Install unknown apps → Allow</li>
+              <li>Then tap <b>Install</b></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="install">
+            <h2>Update info</h2>
+            <p class="desc" style="margin:0">
+              Version: <b>1.0</b><br/>
+              Size: <b>—</b><br/>
+              Updated: <b>Today</b>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">✅ <b>Link copied</b> — paste anywhere</div>
+
+  <script>
+    const copyBtn = document.getElementById('copyBtn');
+    const toast = document.getElementById('toast');
+    const apkUrl = new URL('/apk/PhoneGuard.apk', location.href).toString();
+
+    function showToast(msg){
+      toast.innerHTML = msg;
+      toast.style.display = 'inline-flex';
+      clearTimeout(window.__t);
+      window.__t = setTimeout(()=> toast.style.display='none', 2200);
+    }
+
+    copyBtn.addEventListener('click', async () => {
+      try{
+        await navigator.clipboard.writeText(apkUrl);
+        showToast('✅ <b>Link copied</b> — ' + apkUrl);
+      }catch(e){
+        // fallback
+        prompt("Copy this link:", apkUrl);
+      }
+    });
+  </script>
+</body>
+</html>
